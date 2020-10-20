@@ -11,7 +11,6 @@ namespace TestProject_POM
 {
     public class LogInTest : IWebTest
     {
-
         ExecutionResult IWebTest.Execute(WebTestHelper helper)
         {
             var driver = helper.Driver;
@@ -29,8 +28,6 @@ namespace TestProject_POM
                 return ExecutionResult.Passed;
             }
             return ExecutionResult.Failed;
-
-
         }
     }
 }

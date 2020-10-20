@@ -6,10 +6,9 @@ using TestProject.SDK.Tests.Helpers;
 
 namespace TestProject_POM.Pages
 {
-    class HomePage
+    public class HomePage
     {
         private IWebDriver driver;
-
         public HomePage(IWebDriver driver)
         {
             this.driver = driver;
@@ -17,7 +16,7 @@ namespace TestProject_POM.Pages
         private IWebElement Name => driver.FindElement(By.CssSelector("#name"));
         private IWebElement Password => driver.FindElement(By.CssSelector("#password"));
         private IWebElement LoginButton => driver.FindElement(By.CssSelector("#login"));
-        private IWebElement LogoutButton => driver.FindElement(By.CssSelector("#logout"));
+        private IWebElement DisplayName => driver.FindElement(By.CssSelector("#greetings > b"));
         public void Login()
         {
             Name.SendKeys("John Smith");
@@ -27,7 +26,7 @@ namespace TestProject_POM.Pages
 
         public bool IsLoginSuccessful()
         {
-            return LogoutButton.Displayed;
+            return DisplayName.Text.Equals("John Smith");
         }
     }
 }
