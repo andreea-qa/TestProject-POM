@@ -13,7 +13,8 @@ namespace TestProject_POM
         [OneTimeSetUp]
         public void SetUp()
         {
-            runner = new RunnerBuilder(DevToken).AsWeb(AutomatedBrowserType.Chrome).Build();
+            runner = new RunnerBuilder(DevToken).AsWeb(AutomatedBrowserType.Chrome).
+                WithJobName("Page Object Tests").WithProjectName("POM Project").Build();
         }
 
         [Test]
