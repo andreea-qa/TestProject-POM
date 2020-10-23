@@ -1,8 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TestProject.SDK.Tests.Helpers;
 
 namespace TestProject_POM.Pages
 {
