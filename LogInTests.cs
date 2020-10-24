@@ -23,10 +23,10 @@ namespace TestProject_POM
             runner.Run(new LogInTest());
         }
 
-        //[Test]
+        [Test]
         public void TestInvalidLogin()
         {
-            runner.Run(new LogInTest());
+            runner.Run(new InvalidLoginTest());
         }
 
         [OneTimeTearDown]

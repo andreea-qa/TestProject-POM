@@ -13,16 +13,23 @@ namespace TestProject_POM.Pages
         private IWebElement Password => driver.FindElement(By.CssSelector("#password"));
         private IWebElement LoginButton => driver.FindElement(By.CssSelector("#login"));
         private IWebElement DisplayName => driver.FindElement(By.CssSelector("#greetings > b"));
-        public void Login()
+
+        private IWebElement IncorrectPasswordMessage => driver.FindElement(By.CssSelector("#password ~div"));
+        public void Login(string name, string password)
         {
-            Name.SendKeys("John Smith");
-            Password.SendKeys("12345");
+            Name.SendKeys(name);
+            Password.SendKeys(password);
             LoginButton.Click();
         }
 
         public bool IsLoginSuccessful()
         {
             return DisplayName.Text.Equals("John Smith");
+        }
+
+        public bool IsPasswordIncorrectMessageDisplayed()
+        {
+            return IncorrectPasswordMessage.Text.Equals("Password is invalid");
         }
     }
 }

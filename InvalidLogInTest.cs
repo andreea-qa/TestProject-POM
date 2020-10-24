@@ -9,7 +9,7 @@ using TestProject_POM.Pages;
 
 namespace TestProject_POM
 {
-    public class LogInTest : IWebTest
+    public class InvalidLoginTest : IWebTest
     {
         ExecutionResult IWebTest.Execute(WebTestHelper helper)
         {
@@ -19,11 +19,11 @@ namespace TestProject_POM
 
             driver.Navigate().GoToUrl("https://example.testproject.io/web/");
 
-            homePage.Login("John Smith", "12345");
-            helper.Reporter.Step("Logged in the app", "The login is unsuccessful", "The login is successful",
-                homePage.IsLoginSuccessful(), TakeScreenshotConditionType.Always);
+            homePage.Login("Invalid Login", "1234");
+            helper.Reporter.Step("Incorrect password messsage", "The message is not displayed", "The message is displayed",
+                homePage.IsPasswordIncorrectMessageDisplayed(), TakeScreenshotConditionType.Always);
 
-            if (homePage.IsLoginSuccessful())
+            if (homePage.IsPasswordIncorrectMessageDisplayed())
             {
                 return ExecutionResult.Passed;
             }
