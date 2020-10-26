@@ -5,6 +5,7 @@ using System;
 
 namespace TestProject_POM
 {
+    [TestFixture]
     public class LogInTests
     {
         Runner runner;
@@ -16,6 +17,7 @@ namespace TestProject_POM
             runner = new RunnerBuilder(DevToken).AsWeb(AutomatedBrowserType.Chrome).
                 WithJobName("Page Object Tests").WithProjectName("POM Project").Build();
         }
+
 
         [Test]
         public void Login()

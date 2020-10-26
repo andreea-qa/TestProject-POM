@@ -22,9 +22,9 @@ namespace TestProject_POM.Pages
             LoginButton.Click();
         }
 
-        public bool IsLoginSuccessful()
+        public bool IsUserLoggedIn(string name)
         {
-            return DisplayName.Text.Equals("John Smith");
+            return DisplayName.Text.Equals(name);
         }
 
         public bool IsPasswordIncorrectMessageDisplayed()

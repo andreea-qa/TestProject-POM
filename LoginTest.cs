@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using System.Drawing.Text;
 using TestProject.Common.Enums;
 using TestProject.SDK;
 using TestProject.SDK.Interfaces;
@@ -13,17 +14,19 @@ namespace TestProject_POM
     {
         ExecutionResult IWebTest.Execute(WebTestHelper helper)
         {
+            string username = "John Smith";
+            string password = "12345";
             var driver = helper.Driver;
             TestReporter report = helper.Reporter;
             HomePage homePage = new HomePage(driver);
 
             driver.Navigate().GoToUrl("https://example.testproject.io/web/");
 
-            homePage.Login("John Smith", "12345");
+            homePage.Login(username, password);
             helper.Reporter.Step("Logged in the app", "The login is unsuccessful", "The login is successful",
-                homePage.IsLoginSuccessful(), TakeScreenshotConditionType.Always);
+                homePage.IsUserLoggedIn(username), TakeScreenshotConditionType.Always);
 
-            if (homePage.IsLoginSuccessful())
+            if (homePage.IsUserLoggedIn(username))
             {
                 return ExecutionResult.Passed;
             }
