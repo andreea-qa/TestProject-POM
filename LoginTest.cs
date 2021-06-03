@@ -1,8 +1,5 @@
-﻿using OpenQA.Selenium;
-using System.Drawing.Text;
-using TestProject.Common.Enums;
+﻿using TestProject.Common.Enums;
 using TestProject.SDK;
-using TestProject.SDK.Interfaces;
 using TestProject.SDK.Reporters;
 using TestProject.SDK.Tests;
 using TestProject.SDK.Tests.Helpers;
