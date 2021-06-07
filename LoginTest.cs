@@ -11,7 +11,7 @@ namespace TestProject_POM
     {
         ExecutionResult IWebTest.Execute(WebTestHelper helper)
         {
-            string username = "John Smith";
+            string username = "Andreea Drani";
             string password = "12345";
             var driver = helper.Driver;
             TestReporter report = helper.Reporter;
